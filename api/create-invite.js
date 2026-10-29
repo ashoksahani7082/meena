@@ -28,11 +28,13 @@ export default async function handler(req, res) {
       return res.status(502).json({ ok: false, error: tgData.description || "Could not create Telegram invite link" });
     }
     const inviteLink = tgData.result.invite_link;
+    console.log("Meena Telegram invite created", { click_id: clickId, chat_id: chatId, source: attribution.source, campaign: attribution.campaign });
     const rr = await fetch(redisUrl, { method: "POST", headers: {
       Authorization: `Bearer ${redisToken}`, "content-type": "application/json"
     }, body: JSON.stringify(["SET", `invite:${inviteLink}`, JSON.stringify({ ...attribution, invite_link: inviteLink }), "EX", 691200]) });
     const rd = await rr.json();
     if (!rr.ok || rd.error) { console.error("Redis mapping save failed", rd); return res.status(502).json({ ok: false, error: "Could not save attribution mapping" }); }
+    console.log("Meena invite attribution saved", { click_id: clickId, source: attribution.source, campaign: attribution.campaign });
     return res.status(200).json({ ok: true, invite_link: inviteLink, click_id: clickId });
   } catch (e) {
     console.error("Create invite error:", e);
