@@ -5,7 +5,7 @@ async function redisCommand(command) {
   const d = await r.json(); if (!r.ok || d.error) throw new Error(d.error || "Redis command failed"); return d.result;
 }
 async function sendMetaSubscribe(a, eventTime, eventId) {
-  const accessToken = process.env.META_CAPI_ACCESS_TOKEN, pixelId = process.env.META_PIXEL_ID || "2355246845293608";
+  const accessToken = process.env.META_CAPI_ACCESS_TOKEN, pixelId = process.env.META_PIXEL_ID || "3515462758635028";
   const version = process.env.META_GRAPH_API_VERSION || "v24.0", testCode = process.env.META_TEST_EVENT_CODE;
   if (!accessToken) throw new Error("META_CAPI_ACCESS_TOKEN is not configured");
   const userData = {};
