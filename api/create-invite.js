@@ -1,10 +1,10 @@
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ ok: false, error: "Method not allowed" });
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.MEENA_TELEGRAM_CHAT_ID;
+  const chatId = process.env.MEENA_TELEGRAM_CHAT_ID || "-1003928691639";
   const redisUrl = process.env.KV_REST_API_URL;
   const redisToken = process.env.KV_REST_API_TOKEN;
-  if (!token || !chatId) return res.status(500).json({ ok: false, error: "Telegram environment variables are not configured" });
+  if (!token) return res.status(500).json({ ok: false, error: "TELEGRAM_BOT_TOKEN is not configured" });
   if (!redisUrl || !redisToken) return res.status(500).json({ ok: false, error: "Redis environment variables are not configured" });
   try {
     const body = req.body || {};
