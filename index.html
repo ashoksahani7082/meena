@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MEENA | Join Telegram</title>
+<meta name="theme-color" content="#eaf7ff">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+const PIXEL_ID = 'REPLACE_WITH_MEENA_PIXEL_ID';
+if (PIXEL_ID && !PIXEL_ID.startsWith('REPLACE_')) { fbq('init', PIXEL_ID); fbq('track','PageView'); }
+</script>
+<style>
+*{box-sizing:border-box} body{font-family:Inter,system-ui,sans-serif;margin:0;min-height:100vh;overflow:hidden;background:linear-gradient(135deg,#f8fdff 0%,#e6f6ff 48%,#d4efff 100%);color:#102b46}
+.scene{position:fixed;inset:0;overflow:hidden;perspective:1000px;pointer-events:none}
+.glow{position:absolute;border-radius:50%;filter:blur(65px);opacity:.72;animation:drift 13s ease-in-out infinite alternate}
+.glow.one{width:360px;height:360px;left:-110px;top:-100px;background:#73d0ff}.glow.two{width:400px;height:400px;right:-120px;bottom:-150px;background:#b5e9ff;animation-delay:-5s}
+.orb{position:absolute;border:1px solid rgba(42,157,219,.3);border-radius:28%;transform-style:preserve-3d;box-shadow:inset 0 0 35px rgba(71,183,235,.12),0 20px 60px rgba(46,143,194,.08);animation:rotate3d 18s linear infinite}
+.orb.a{width:180px;height:180px;left:8%;top:18%;transform:rotateX(60deg) rotateZ(30deg)}.orb.b{width:120px;height:120px;right:10%;top:14%;animation-duration:22s;animation-direction:reverse}.orb.c{width:230px;height:230px;right:13%;bottom:6%;animation-duration:26s}
+@keyframes drift{to{transform:translate3d(60px,45px,0) scale(1.12)}}@keyframes rotate3d{0%{transform:rotateX(0) rotateY(0) rotateZ(0)}100%{transform:rotateX(360deg) rotateY(180deg) rotateZ(360deg)}}
+.card{position:relative;z-index:2;width:min(100%,430px);background:rgba(255,255,255,.76);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.95);box-shadow:0 28px 90px rgba(38,123,170,.18),inset 0 1px 0 #fff}
+.ring{position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(from 0deg,#fff,#50bff2,#1688c7,#d9f5ff,#fff);animation:spin 3s linear infinite;filter:drop-shadow(0 0 14px rgba(44,166,224,.32))}
+.ring:after{content:"";position:absolute;inset:4px;border-radius:50%;background:#fff}@keyframes spin{to{transform:rotate(360deg)}}
+.cta{background:linear-gradient(100deg,#168dcc,#52c4f3);box-shadow:0 12px 28px rgba(24,145,202,.28);transition:transform .2s,box-shadow .2s}.cta:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(24,145,202,.36)}
+.pulse{animation:pulse 2.2s infinite}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(53,174,229,.36)}70%{box-shadow:0 0 0 16px rgba(53,174,229,0)}100%{box-shadow:0 0 0 0 rgba(53,174,229,0)}}
+@media(max-height:720px){body{overflow:auto}.card{padding:1.5rem!important}.scene{position:fixed}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-4 py-6">
+<div class="scene" aria-hidden="true"><div class="glow one"></div><div class="glow two"></div><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+<main class="card rounded-[2rem] p-8 flex flex-col items-center text-center">
+<div class="relative w-28 h-28 mb-5 flex items-center justify-center"><div class="ring"></div><div class="relative z-10 w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-inner"><i class="fa-brands fa-telegram text-[4rem] text-sky-500"></i></div></div>
+<div class="text-xs font-extrabold uppercase tracking-[.28em] text-sky-600 mb-2">WELCOME TO</div>
+<h1 class="text-4xl font-black tracking-tight text-slate-900 mb-2">MEENA</h1>
+<p class="text-slate-600 text-sm leading-6 mb-6">Join our official Telegram channel and stay connected.</p>
+<div class="w-full grid grid-cols-2 gap-3 mb-6">
+<div class="rounded-2xl border border-sky-100 bg-white/80 px-3 py-3"><i class="fa-solid fa-shield-halved text-sky-500 mb-2"></i><div class="text-xs font-bold text-slate-700">Official Channel</div></div>
+<div class="rounded-2xl border border-sky-100 bg-white/80 px-3 py-3"><i class="fa-solid fa-bolt text-sky-500 mb-2"></i><div class="text-xs font-bold text-slate-700">Quick Join Request</div></div>
+</div>
+<div class="w-full rounded-2xl border border-sky-100 bg-sky-50/90 px-4 py-4 mb-6 flex items-center justify-center gap-3"><span class="text-[11px] font-extrabold uppercase tracking-[.16em] text-slate-500">Join window</span><span id="timer" class="text-2xl font-black tracking-widest text-sky-600 tabular-nums">10:00</span></div>
+<button id="joinBtn" class="cta pulse w-full rounded-2xl py-4 px-5 text-white font-extrabold tracking-wide flex items-center justify-center gap-3"><i class="fa-brands fa-telegram text-2xl"></i><span id="btnText">JOIN MEENA CHANNEL</span></button>
+<p id="status" role="status" class="min-h-5 text-xs text-slate-500 mt-4"></p>
+<div class="text-[10px] uppercase tracking-[.18em] text-slate-400 mt-2"><i class="fa-solid fa-lock mr-1"></i> Secure connection</div>
+</main>
+<script>
+let seconds=600;const timer=document.getElementById('timer');function tick(){const m=Math.floor(seconds/60),s=seconds%60;timer.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');if(seconds>0)seconds--;}tick();setInterval(tick,1000);
+const btn=document.getElementById('joinBtn'),btnText=document.getElementById('btnText'),status=document.getElementById('status');
+btn.addEventListener('click',async()=>{if(btn.disabled)return;btn.disabled=true;btnText.textContent='PREPARING LINK…';status.textContent='Creating your secure Telegram join link';try{
+const p=new URLSearchParams(location.search);const readCookie=n=>document.cookie.match(new RegExp('(?:^|; )'+n+'=([^;]*)'))?.[1]||null;
+const r=await fetch('/api/create-invite',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({source:p.get('utm_source'),campaign:p.get('utm_campaign'),medium:p.get('utm_medium'),content:p.get('utm_content'),term:p.get('utm_term'),fbp:readCookie('_fbp'),fbc:readCookie('_fbc'),landing_url:location.href,landing_referrer:document.referrer?new URL(document.referrer).hostname:null,user_agent:navigator.userAgent})});
+const d=await r.json();if(!r.ok||!d.ok||!d.invite_link)throw new Error(d.error||'Unable to create invite link');location.href=d.invite_link;
+}catch(e){console.error(e);status.textContent='Could not create a join link. Please try again in a moment.';btnText.textContent='TRY AGAIN';btn.disabled=false;}});
+</script>
+</body></html>
