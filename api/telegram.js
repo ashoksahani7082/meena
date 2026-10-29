@@ -5,9 +5,9 @@ async function redisCommand(command) {
   const d = await r.json(); if (!r.ok || d.error) throw new Error(d.error || "Redis command failed"); return d.result;
 }
 async function sendMetaSubscribe(a, eventTime, eventId) {
-  const accessToken = process.env.META_CAPI_ACCESS_TOKEN, pixelId = process.env.META_PIXEL_ID;
+  const accessToken = process.env.META_CAPI_ACCESS_TOKEN, pixelId = process.env.META_PIXEL_ID || "2355246845293608";
   const version = process.env.META_GRAPH_API_VERSION || "v24.0", testCode = process.env.META_TEST_EVENT_CODE;
-  if (!accessToken || !pixelId) throw new Error("Meta CAPI environment variables are not configured");
+  if (!accessToken) throw new Error("META_CAPI_ACCESS_TOKEN is not configured");
   const userData = {};
   if (a?.fbp) userData.fbp = a.fbp;
   if (a?.fbc) userData.fbc = a.fbc;
@@ -30,7 +30,8 @@ export default async function handler(req,res) {
     const update=req.body||{};
     if(update?.chat_join_request) {
       const q=update.chat_join_request;
-      if(process.env.MEENA_TELEGRAM_CHAT_ID && String(q.chat?.id)!==String(process.env.MEENA_TELEGRAM_CHAT_ID)) {
+      const expectedChatId = process.env.MEENA_TELEGRAM_CHAT_ID || "-1003928691639";
+      if(String(q.chat?.id)!==String(expectedChatId)) {
         console.warn("Ignoring join request for a different Telegram chat", q.chat?.id);
         return res.status(200).json({ok:true});
       }
